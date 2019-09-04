@@ -1,11 +1,11 @@
-package animals
+package animals;
 
 public abstract class AbstractAnimals // use this to to give child objects methods
 {
   // fields --> each animal must of have a unique id a name and a year discovered
   public String name;;
   public int yearDiscovered;
-  public static MaxId = 0;
+  public static int MaxId = 0;
   public int id;
 
 // Contructor
@@ -25,7 +25,7 @@ public AbstractAnimals(String name, int yearDiscovered)
 }
 //abstract methods
 
-public abstract void getMove();
+public abstract String getMove();
 public abstract String getBreath();
 public abstract String reproduce();
 
