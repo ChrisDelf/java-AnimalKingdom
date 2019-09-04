@@ -4,7 +4,18 @@ import java.util.*;
 
 public class Main
 {
+	public static void printAnimals(ArrayList<AbstractAnimals> animals, CheckAnimals tester)
+	{
+		for (AbstractAnimals o : animals)
 
+		{
+			if (tester.test(o))
+
+			{
+				System.out.println("Name: " + o.name + " / " + "Travels by: " + o.getMove() + " / " + "Reproduce: " + o.reproduce());
+			}
+		}
+	}
 
  public static void main(String[] args)
  {
@@ -60,11 +71,35 @@ ArrayList<AbstractAnimals> animalList = new ArrayList<>(); // adding the animals
  animalList.add(perch);
 
  // Sorting by year named using the lambdas
-
+System.out.println("Sorting by Year Discovered in descending");
 animalList.sort((o1, o2)-> o2.yearDiscovered - o1.yearDiscovered);
-animalList.forEach((o) -> System.out.println("Name: " + o.name + " / " + "Year: " + o.yearDiscovered));
+// animalList.forEach((o) -> System.out.println("Name: " + o.name + " / " + "Year: " + o.yearDiscovered));
+printAnimals(animalList, o -> o.id > 0);
 System.out.println();
 
+
+//By alphabetically
+System.out.println("***** Sorting Aplhabetically ******");
+
+animalList.sort((o1, o2)-> o1.name.compareToIgnoreCase(o2.name));
+// animalList.forEach((o) -> System.out.println("Name: " + o.name + " / " + "Year: " + o.yearDiscovered));
+printAnimals(animalList, o -> o.id > 0);
+System.out.println();
+
+//Listing by Movement
+System.out.println("***** Sorting By Movement  ******");
+System.out.println();
+System.out.println("***** Walking ******");
+printAnimals(animalList, o -> o.getMove() == "Walk");
+System.out.println();
+
+System.out.println("***** Swim ******");
+printAnimals(animalList, o -> o.getMove() == "Swim");
+System.out.println();
+
+System.out.println("***** Fly ******");
+printAnimals(animalList, o -> o.getMove() == "Fly");
+System.out.println();
  }
 
 }
