@@ -8,6 +8,8 @@ public class Main
 
  public static void main(String[] args)
  {
+
+
   //Constructor Mammal
 
     Mammal panda = new Mammal("Panda", 1869);
@@ -57,6 +59,12 @@ ArrayList<AbstractAnimals> animalList = new ArrayList<>(); // adding the animals
  animalList.add(catfish);
  animalList.add(perch);
 
+ // Sorting by year named using the lambdas
+
+animalList.sort((o1, o2)-> o2.yearDiscovered - o1.yearDiscovered);
+animalList.forEach((o) -> System.out.println("Name: " + o.name + " / " + "Year: " + o.yearDiscovered));
+System.out.println();
 
  }
+
 }

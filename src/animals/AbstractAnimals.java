@@ -14,7 +14,7 @@ public AbstractAnimals(String name, int yearDiscovered)
   MaxId++;
   this.id = MaxId;
   this.name = name;
-  this.yearDiscovered = this.yearDiscovered;
+  this.yearDiscovered = yearDiscovered;
 
 }
 
