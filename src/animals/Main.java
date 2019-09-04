@@ -12,7 +12,12 @@ public class Main
 			if (tester.test(o))
 
 			{
-				System.out.println("Name: " + o.name + " / " + "Travels by: " + o.getMove() + " / " + "Reproduce: " + o.reproduce());
+				System.out.println("Name: " + o.name + " / " +
+            "Travels by: " + o.getMove() +
+            " / " + "Reproduce: "
+            + o.reproduce() + " / "
+            + "Breath Type: " + o.getBreath()
+            +" / " + "Year Discovered: " + o.yearDiscovered);
 			}
 		}
 	}
@@ -100,6 +105,27 @@ System.out.println();
 System.out.println("***** Fly ******");
 printAnimals(animalList, o -> o.getMove() == "Fly");
 System.out.println();
+
+
+// Sortting by breathing with lungs
+System.out.println("***** Lung users ******");
+printAnimals(animalList, o -> o.getBreath() == "Lungs");
+System.out.println();
+
+// Sortting by lungs and those named in 1758
+System.out.println("***** Lung users and discovered in 1758 ******");
+printAnimals(animalList, o -> (o.getBreath() == "Lungs") && (o.yearDiscovered == 1758));
+System.out.println();
+
+System.out.println("***** Lung users and lay eggs ******");
+printAnimals(animalList, o -> (o.getBreath() == "Lungs") && (o.reproduce() == "Eggs"));
+System.out.println();
+
+System.out.println("***** Animals Discovered in 1758 in aplhabetical order ******");
+animalList.sort((o1, o2)-> o1.name.compareToIgnoreCase(o2.name)); // putting the list in order againg
+printAnimals(animalList, o -> o.yearDiscovered == 1758 );
  }
+
+
 
 }
